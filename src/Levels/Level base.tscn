@@ -1,0 +1,148 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/Levels/Level Manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/Freetileset/Object/Tree_2.png" type="Texture" id=2]
+[ext_resource path="res://src/Level Elements/Tilesets/Ground.tres" type="TileSet" id=3]
+[ext_resource path="res://src/Actors/Slime/Slime.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Actors/Ai/Overrides/ForceJumps.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Freetileset/BG/BG.png" type="Texture" id=6]
+[ext_resource path="res://assets/Freetileset/Object/Next_sign.png" type="Texture" id=7]
+[ext_resource path="res://src/Level Elements/UI/Interface.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Freetileset/Object/Bush (3).png" type="Texture" id=9]
+[ext_resource path="res://src/Actors/Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Level Elements/Reverse/Reverse.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Level Elements/Tilesets/Water.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/Freetileset/Object/Bush (1).png" type="Texture" id=14]
+[ext_resource path="res://assets/Freetileset/Object/Bush (2).png" type="Texture" id=15]
+[ext_resource path="res://assets/Music/field_theme_1.wav" type="AudioStream" id=17]
+[ext_resource path="res://src/Actors/Ai/AI.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/Freetileset/Object/Tree_3.png" type="Texture" id=19]
+[ext_resource path="res://src/Level Elements/ResetArea/RestartArea.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 141.5, 102 )
+
+[node name="Level base" type="Node2D"]
+script = ExtResource( 1 )
+next_level_name = "Level base"
+
+[node name="OptionalModules" type="Node" parent="."]
+
+[node name="RestartArea" parent="OptionalModules" instance=ExtResource( 20 )]
+position = Vector2( 2499, 2185 )
+
+[node name="ReverseTimer" parent="OptionalModules" instance=ExtResource( 11 )]
+
+[node name="PlayerFollower" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2( 456, 300 )
+current = true
+limit_left = -64
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="Floor" type="TileMap" parent="." groups=["Floor"]]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 65534, 16, 0, 65535, 16, 2, 131070, 16, 65536, 131071, 16, 65538, 196606, 16, 65536, 196607, 16, 65538, 262142, 16, 65536, 262143, 16, 65538, 327678, 16, 65536, 327679, 16, 65538, 393214, 16, 65536, 393215, 16, 65538, 327691, 16, 0, 327692, 16, 2, 327700, 16, 0, 327701, 16, 2, 458750, 16, 65536, 458751, 16, 65538, 393227, 16, 65536, 393228, 16, 65538, 393236, 16, 65536, 393237, 16, 65540, 393238, 16, 1, 393239, 16, 1, 393240, 16, 1, 393241, 16, 1, 393242, 16, 2, 393245, 17, 0, 393246, 17, 1, 393247, 17, 2, 393250, 16, 0, 393251, 16, 2, 393255, 16, 0, 393256, 16, 1, 393257, 16, 1, 393258, 16, 2, 393272, 16, 0, 393273, 16, 1, 393274, 16, 1, 393275, 16, 2, 524286, 16, 65536, 524287, 16, 65540, 458752, 16, 1, 458753, 16, 1, 458754, 16, 1, 458755, 16, 1, 458756, 16, 1, 458757, 16, 1, 458758, 16, 1, 458759, 16, 1, 458760, 16, 1, 458761, 16, 1, 458762, 16, 1, 458763, 16, 65539, 458764, 16, 65540, 458765, 16, 1, 458766, 16, 1, 458767, 16, 1, 458768, 16, 1, 458769, 16, 1, 458770, 16, 1, 458771, 16, 1, 458772, 16, 65539, 458773, 16, 65537, 458774, 16, 65537, 458775, 16, 65537, 458776, 16, 65537, 458777, 16, 65537, 458778, 16, 65538, 458786, 16, 65536, 458787, 16, 65540, 458788, 16, 1, 458789, 16, 1, 458790, 16, 1, 458791, 16, 65539, 458792, 16, 65537, 458793, 16, 65537, 458794, 16, 65538, 458808, 16, 65536, 458809, 16, 65537, 458810, 16, 65537, 458811, 16, 65538, 589822, 16, 131072, 589823, 16, 131073, 524288, 16, 131073, 524289, 16, 131073, 524290, 16, 131073, 524291, 16, 131073, 524292, 16, 131073, 524293, 16, 131073, 524294, 16, 131073, 524295, 16, 131073, 524296, 16, 131073, 524297, 16, 131073, 524298, 16, 131073, 524299, 16, 131073, 524300, 16, 131073, 524301, 16, 131073, 524302, 16, 131073, 524303, 16, 131073, 524304, 16, 131073, 524305, 16, 131073, 524306, 16, 131073, 524307, 16, 131073, 524308, 16, 131073, 524309, 16, 131073, 524310, 16, 131073, 524311, 16, 131073, 524312, 16, 131073, 524313, 16, 131073, 524314, 16, 131074, 524322, 16, 65536, 524323, 16, 131076, 524324, 16, 131073, 524325, 16, 131073, 524326, 16, 131073, 524327, 16, 131073, 524328, 16, 131073, 524329, 16, 131073, 524330, 16, 131074, 524344, 16, 65536, 524345, 16, 65537, 524346, 16, 65537, 524347, 16, 65538, 589858, 16, 65536, 589859, 16, 65538, 589880, 16, 65536, 589881, 16, 65537, 589882, 16, 65537, 589883, 16, 65538, 655394, 16, 65536, 655395, 16, 65538, 655416, 16, 65536, 655417, 16, 65537, 655418, 16, 65537, 655419, 16, 65538, 720930, 16, 65536, 720931, 16, 65538, 720952, 16, 65536, 720953, 16, 65537, 720954, 16, 65537, 720955, 16, 65538, 786466, 16, 65536, 786467, 16, 65538, 786488, 16, 65536, 786489, 16, 65537, 786490, 16, 65537, 786491, 16, 65538, 852002, 16, 65536, 852003, 16, 65538, 852024, 16, 65536, 852025, 16, 65537, 852026, 16, 65537, 852027, 16, 65538, 917538, 16, 65536, 917539, 16, 65538, 917560, 16, 131072, 917561, 16, 131073, 917562, 16, 131075, 917563, 16, 65538, 983074, 16, 65536, 983075, 16, 65538, 983098, 16, 65536, 983099, 16, 65538, 1048610, 16, 65536, 1048611, 16, 65540, 1048612, 16, 1, 1048613, 16, 1, 1048614, 16, 1, 1048615, 16, 1, 1048616, 16, 1, 1048617, 16, 1, 1048618, 16, 1, 1048619, 16, 1, 1048620, 16, 1, 1048621, 16, 1, 1048622, 16, 1, 1048623, 16, 1, 1048624, 16, 1, 1048625, 16, 1, 1048626, 16, 1, 1048627, 16, 1, 1048628, 16, 1, 1048629, 16, 1, 1048630, 16, 1, 1048631, 16, 1, 1048632, 16, 1, 1048633, 16, 1, 1048634, 16, 65539, 1048635, 16, 65538, 1114146, 16, 131072, 1114147, 16, 131073, 1114148, 16, 131073, 1114149, 16, 131073, 1114150, 16, 131073, 1114151, 16, 131073, 1114152, 16, 131073, 1114153, 16, 131073, 1114154, 16, 131073, 1114155, 16, 131073, 1114156, 16, 131073, 1114157, 16, 131073, 1114158, 16, 131073, 1114159, 16, 131073, 1114160, 16, 131073, 1114161, 16, 131073, 1114162, 16, 131073, 1114163, 16, 131073, 1114164, 16, 131073, 1114165, 16, 131073, 1114166, 16, 131073, 1114167, 16, 131073, 1114168, 16, 131073, 1114169, 16, 131073, 1114170, 16, 131073, 1114171, 16, 131074 )
+
+[node name="Ai Overrides" type="Node2D" parent="."]
+
+[node name="ForceJump" parent="Ai Overrides" instance=ExtResource( 5 )]
+position = Vector2( 2327, 405 )
+
+[node name="ForceJump2" parent="Ai Overrides" instance=ExtResource( 5 )]
+position = Vector2( 2784, 408 )
+
+[node name="Participants" type="Node2D" parent="."]
+
+[node name="Player" parent="Participants" instance=ExtResource( 10 )]
+unique_name_in_owner = true
+position = Vector2( 463, 426 )
+
+[node name="AI" parent="Participants" instance=ExtResource( 18 )]
+unique_name_in_owner = true
+position = Vector2( 299, 415 )
+
+[node name="Slime" parent="Participants" instance=ExtResource( 4 )]
+position = Vector2( 2342, 441 )
+
+[node name="ItemsBehind" type="Node2D" parent="."]
+show_behind_parent = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Bush(1)" type="Sprite" parent="ItemsBehind"]
+position = Vector2( 743, 417 )
+texture = ExtResource( 14 )
+
+[node name="Tree3" type="Sprite" parent="ItemsBehind"]
+position = Vector2( 233, 314 )
+texture = ExtResource( 19 )
+
+[node name="ItemsAhed2" type="Node2D" parent="."]
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Bush(3)" type="Sprite" parent="ItemsAhed2"]
+position = Vector2( 657, 435 )
+texture = ExtResource( 9 )
+
+[node name="Tree2" type="Sprite" parent="ItemsAhed2"]
+position = Vector2( 130, 307 )
+texture = ExtResource( 2 )
+
+[node name="Tree3" type="Sprite" parent="ItemsAhed2"]
+position = Vector2( 313, 308 )
+texture = ExtResource( 2 )
+
+[node name="Bush(1)2" type="Sprite" parent="ItemsAhed2"]
+position = Vector2( 379, 427 )
+texture = ExtResource( 14 )
+
+[node name="Bush(2)" type="Sprite" parent="ItemsAhed2"]
+position = Vector2( 56, 430 )
+texture = ExtResource( 15 )
+
+[node name="NextSign" type="Sprite" parent="."]
+position = Vector2( 2458, 968 )
+texture = ExtResource( 7 )
+
+[node name="Finisher" type="Area2D" parent="NextSign"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextSign/Finisher"]
+position = Vector2( -14.5, -28 )
+shape = SubResource( 1 )
+
+[node name="Water" type="TileMap" parent="." groups=["Water"]]
+tile_set = ExtResource( 12 )
+format = 1
+tile_data = PoolIntArray( 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0 )
+
+[node name="Start" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Interface" parent="CanvasLayer" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 17 )
+autoplay = true
+
+[connection signal="body_entered" from="NextSign/Finisher" to="." method="_on_Finisher_body_entered"]
+[connection signal="body_exited" from="NextSign/Finisher" to="." method="_on_Finisher_body_exited"]
+[connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]

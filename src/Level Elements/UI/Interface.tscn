@@ -1,0 +1,347 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://src/Level Elements/UI/Interface.gd" type="Script" id=1]
+[ext_resource path="res://assets/Interface/bar/Player/bg.png" type="Texture" id=2]
+[ext_resource path="res://assets/Interface/bar/Player/fill.png" type="Texture" id=3]
+[ext_resource path="res://assets/Interface/counter/label_bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/Interface/bar/Player/Player.png" type="Texture" id=5]
+[ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/Interface/bar/AI/bg.png" type="Texture" id=7]
+[ext_resource path="res://assets/Interface/bar/AI/Ai.png" type="Texture" id=8]
+[ext_resource path="res://assets/Interface/bar/AI/fill.png" type="Texture" id=9]
+[ext_resource path="res://assets/Interface/buttons/reset_hover.png" type="Texture" id=10]
+[ext_resource path="res://assets/Interface/buttons/reset_click.png" type="Texture" id=11]
+[ext_resource path="res://assets/Interface/buttons/reset_normal.png" type="Texture" id=12]
+[ext_resource path="res://assets/Interface/buttons/pause_click.png" type="Texture" id=13]
+[ext_resource path="res://assets/Interface/buttons/pause_normal.png" type="Texture" id=14]
+[ext_resource path="res://assets/Interface/buttons/pause_hover.png" type="Texture" id=15]
+[ext_resource path="res://assets/Interface/Panels/pause_menu.png" type="Texture" id=16]
+[ext_resource path="res://assets/Interface/Panels/pause_text.png" type="Texture" id=17]
+[ext_resource path="res://assets/Interface/buttons/button_pressed.png" type="Texture" id=18]
+[ext_resource path="res://assets/Interface/buttons/button_hover.png" type="Texture" id=19]
+[ext_resource path="res://assets/Interface/buttons/button_normal.png" type="Texture" id=20]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Interface" type="ColorRect"]
+pause_mode = 2
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 6 )
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fade_in = SubResource( 2 )
+anims/Fade_out = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="PlayerStats" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.709804 )
+show_behind_parent = true
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 530.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Counter" type="NinePatchRect" parent="PlayerStats"]
+margin_right = 120.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 120, 0 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="PlayerStats/Counter"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -15.0
+margin_right = 37.0
+margin_bottom = 15.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="PlayerLabel" type="Label" parent="PlayerStats/Counter"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -71.82
+margin_top = -11.0
+margin_right = -4.82
+margin_bottom = 11.0
+text = "100/100"
+
+[node name="PlayerProgress" type="TextureProgress" parent="PlayerStats"]
+unique_name_in_owner = true
+margin_left = 124.0
+margin_right = 520.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+value = 50.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+
+[node name="AiStats" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.709804 )
+show_behind_parent = true
+margin_left = 10.0
+margin_top = 49.0
+margin_right = 382.0
+margin_bottom = 89.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Counter" type="NinePatchRect" parent="AiStats"]
+margin_right = 120.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 0 )
+texture = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="AiStats/Counter"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -15.0
+margin_right = 37.0
+margin_bottom = 15.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="AILabel" type="Label" parent="AiStats/Counter"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -71.82
+margin_top = -11.0
+margin_right = -4.82
+margin_bottom = 11.0
+text = "100/100"
+
+[node name="AIProgress" type="TextureProgress" parent="AiStats"]
+unique_name_in_owner = true
+margin_left = 124.0
+margin_right = 372.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+value = 50.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 9 )
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+show_behind_parent = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -350.0
+margin_top = 8.0
+margin_right = -10.0
+margin_bottom = 180.0
+
+[node name="Reset" type="VBoxContainer" parent="Buttons"]
+margin_right = 340.0
+margin_bottom = 64.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons/Reset"]
+margin_right = 340.0
+margin_bottom = 64.0
+alignment = 2
+
+[node name="Label" type="Label" parent="Buttons/Reset/HBoxContainer"]
+modulate = Color( 0, 0.729412, 1, 1 )
+margin_left = 202.0
+margin_top = 21.0
+margin_right = 272.0
+margin_bottom = 43.0
+text = "Reset : "
+
+[node name="ResetButton" type="TextureButton" parent="Buttons/Reset/HBoxContainer"]
+margin_left = 276.0
+margin_right = 340.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="Buttons/Reset"]
+visible = false
+margin_top = 68.0
+margin_right = 340.0
+margin_bottom = 115.0
+text = "(Try rewinging 10 seconds instead)
+With --> (Ctrl + z)"
+align = 2
+
+[node name="Pause" type="HBoxContainer" parent="Buttons"]
+margin_top = 68.0
+margin_right = 340.0
+margin_bottom = 132.0
+alignment = 2
+
+[node name="Label" type="Label" parent="Buttons/Pause"]
+modulate = Color( 0, 0.729412, 1, 1 )
+margin_left = 138.0
+margin_top = 21.0
+margin_right = 272.0
+margin_bottom = 43.0
+text = "Pause Game :"
+
+[node name="PauseButton" type="TextureButton" parent="Buttons/Pause"]
+margin_left = 276.0
+margin_right = 340.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 15 )
+expand = true
+
+[node name="Interfere" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0.960784, 0.643137, 0.607843 )
+
+[node name="PauseMenu" type="TextureRect" parent="Interfere"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -167.5
+margin_top = -159.0
+margin_right = 167.5
+margin_bottom = 159.0
+texture = ExtResource( 16 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interfere/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 61.0
+margin_top = 67.0
+margin_right = -66.0
+margin_bottom = -33.0
+
+[node name="Resume" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
+expand = true
+
+[node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Resume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Resume"
+align = 1
+valign = 1
+
+[node name="Reset" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
+margin_top = 68.0
+margin_right = 208.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 64 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
+expand = true
+
+[node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Reset"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Restart Level"
+align = 1
+valign = 1
+
+[node name="Menu" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
+margin_top = 136.0
+margin_right = 208.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 64 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
+expand = true
+
+[node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Main Menu"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Interfere/PauseMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -49.5
+margin_top = 7.0
+margin_right = 49.5
+margin_bottom = 33.0
+texture = ExtResource( 17 )
+expand = true
+
+[node name="MenuEffect" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Buttons/Reset/HBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="Buttons/Pause/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Resume" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Reset" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
