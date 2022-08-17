@@ -1,7 +1,7 @@
 # Race-ya
-A Wowie jam 4.0 submission
+A Wowie jam 4.0 submission at https://variable-industries.itch.io/race-ya
 
-![](https://img.itch.zone/aW1nLzk3ODA2NjgucG5n/315x250%23c/wYzacM.png)
+![https://variable-industries.itch.io/race-ya](https://img.itch.zone/aW1nLzk3ODA2NjgucG5n/315x250%23c/wYzacM.png)
 
 ## Overview:
 
