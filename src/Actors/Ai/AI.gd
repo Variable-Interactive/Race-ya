@@ -170,11 +170,11 @@ func get_input():
 				small_platform = true
 
 		elif below_detector.get_collider().is_in_group("Jump"):
-			if below_detector.get_collider().effective_direction == "Left":
+			if below_detector.get_collider().jump_if_ai_moves == 0:
 				if sign(below_detector.get_collider().position.x - position.x) == 1:
 					dir = general_direction
 					small_platform = true
-			elif below_detector.get_collider().effective_direction == "Right":
+			elif below_detector.get_collider().jump_if_ai_moves == 1:
 				if sign(below_detector.get_collider().position.x - position.x) == -1:
 					dir = general_direction
 					small_platform = true
