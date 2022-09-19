@@ -300,7 +300,7 @@ func jump():
 		velocity.y = jump_speed
 
 
-func switch_direction():
+func switch_direction(_dummy = null):
 	if general_direction == 1:
 		general_direction = -1
 		$Sensors.scale.x = -1
