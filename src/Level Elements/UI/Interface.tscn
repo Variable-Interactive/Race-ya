@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Level Elements/UI/Interface.gd" type="Script" id=1]
 [ext_resource path="res://assets/Interface/bar/Player/bg.png" type="Texture" id=2]
@@ -20,6 +20,11 @@
 [ext_resource path="res://assets/Interface/buttons/button_pressed.png" type="Texture" id=18]
 [ext_resource path="res://assets/Interface/buttons/button_hover.png" type="Texture" id=19]
 [ext_resource path="res://assets/Interface/buttons/button_normal.png" type="Texture" id=20]
+[ext_resource path="res://assets/Interface/buttons/Android/button.png" type="Texture" id=21]
+[ext_resource path="res://assets/Interface/buttons/Android/jump.png" type="Texture" id=22]
+[ext_resource path="res://assets/Interface/buttons/Android/arrow.png" type="Texture" id=23]
+[ext_resource path="res://assets/Interface/buttons/Android/Switch.png" type="Texture" id=24]
+[ext_resource path="res://assets/Interface/buttons/Android/button_pressed.png" type="Texture" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 
@@ -37,6 +42,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameButtons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Fade_out"
@@ -52,6 +69,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameButtons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -66,6 +95,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameButtons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="Interface" type="ColorRect"]
@@ -186,32 +227,32 @@ texture_progress = ExtResource( 9 )
 show_behind_parent = true
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -350.0
+margin_left = -212.0
 margin_top = 8.0
 margin_right = -10.0
-margin_bottom = 180.0
+margin_bottom = 140.0
 
 [node name="Reset" type="VBoxContainer" parent="Buttons"]
-margin_right = 340.0
+margin_right = 202.0
 margin_bottom = 64.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Buttons/Reset"]
-margin_right = 340.0
+margin_right = 202.0
 margin_bottom = 64.0
 alignment = 2
 
 [node name="Label" type="Label" parent="Buttons/Reset/HBoxContainer"]
 modulate = Color( 0, 0.729412, 1, 1 )
-margin_left = 202.0
+margin_left = 64.0
 margin_top = 21.0
-margin_right = 272.0
+margin_right = 134.0
 margin_bottom = 43.0
 text = "Reset : "
 
 [node name="ResetButton" type="TextureButton" parent="Buttons/Reset/HBoxContainer"]
-margin_left = 276.0
-margin_right = 340.0
+margin_left = 138.0
+margin_right = 202.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 12 )
@@ -230,27 +271,132 @@ align = 2
 
 [node name="Pause" type="HBoxContainer" parent="Buttons"]
 margin_top = 68.0
-margin_right = 340.0
+margin_right = 202.0
 margin_bottom = 132.0
 alignment = 2
 
 [node name="Label" type="Label" parent="Buttons/Pause"]
 modulate = Color( 0, 0.729412, 1, 1 )
-margin_left = 138.0
 margin_top = 21.0
-margin_right = 272.0
+margin_right = 134.0
 margin_bottom = 43.0
 text = "Pause Game :"
 
 [node name="PauseButton" type="TextureButton" parent="Buttons/Pause"]
-margin_left = 276.0
-margin_right = 340.0
+margin_left = 138.0
+margin_right = 202.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 15 )
 expand = true
+
+[node name="GameButtons" type="Control" parent="."]
+anchor_top = 0.565
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Jump" type="TouchScreenButton" parent="GameButtons"]
+unique_name_in_owner = true
+self_modulate = Color( 0, 0.713726, 1, 0.737255 )
+position = Vector2( 796, 33 )
+scale = Vector2( 1.98, 1.98 )
+normal = ExtResource( 21 )
+pressed = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameButtons/Jump"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 35.7955
+margin_top = 26.9231
+margin_right = -32.2045
+margin_bottom = -21.0769
+mouse_filter = 2
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Switch" type="TextureButton" parent="GameButtons"]
+unique_name_in_owner = true
+self_modulate = Color( 0.968627, 1, 0.466667, 1 )
+margin_left = 713.0
+margin_top = -41.0
+margin_right = 809.0
+margin_bottom = 52.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 25 )
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameButtons/Switch"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -22.0
+margin_right = 27.0
+margin_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource( 24 )
+expand = true
+
+[node name="Left" type="TouchScreenButton" parent="GameButtons"]
+unique_name_in_owner = true
+self_modulate = Color( 0.137255, 1, 0.427451, 1 )
+position = Vector2( 47, 52 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 21 )
+pressed = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameButtons/Left"]
+self_modulate = Color( 0.392157, 1, 0.145098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 31.0
+margin_right = -33.0
+margin_bottom = -30.0
+mouse_filter = 2
+texture = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Right" type="TouchScreenButton" parent="GameButtons"]
+unique_name_in_owner = true
+self_modulate = Color( 0.137255, 1, 0.427451, 1 )
+position = Vector2( 235, 52 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 21 )
+pressed = ExtResource( 25 )
+__meta__ = {
+"_edit_group_": true,
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameButtons/Right"]
+self_modulate = Color( 0.392157, 1, 0.145098, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_top = 29.0
+margin_right = -29.0
+margin_bottom = -32.0
+mouse_filter = 2
+texture = ExtResource( 23 )
+expand = true
+flip_h = true
 
 [node name="Interfere" type="ColorRect" parent="."]
 visible = false
@@ -316,6 +462,7 @@ margin_top = 136.0
 margin_right = 208.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 0, 64 )
+shortcut_in_tooltip = false
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 18 )
 texture_hover = ExtResource( 19 )
@@ -342,6 +489,12 @@ expand = true
 
 [connection signal="pressed" from="Buttons/Reset/HBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="Buttons/Pause/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="GameButtons/Jump" to="." method="_on_Jump_pressed"]
+[connection signal="released" from="GameButtons/Jump" to="." method="_on_Jump_released"]
+[connection signal="pressed" from="GameButtons/Left" to="." method="_on_Left_pressed"]
+[connection signal="released" from="GameButtons/Left" to="." method="_on_Left_released"]
+[connection signal="pressed" from="GameButtons/Right" to="." method="_on_Right_pressed"]
+[connection signal="released" from="GameButtons/Right" to="." method="_on_Right_released"]
 [connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Resume" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Reset" to="." method="_on_ResetButton_pressed"]
 [connection signal="pressed" from="Interfere/PauseMenu/VBoxContainer/Menu" to="." method="_on_Menu_pressed"]

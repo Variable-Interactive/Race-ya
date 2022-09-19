@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/Title/Title blur.png" type="Texture" id=1]
 [ext_resource path="res://assets/Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/Interface/buttons/back_pressed.png" type="Texture" id=13]
 [ext_resource path="res://assets/Interface/buttons/back_hover.png" type="Texture" id=14]
 [ext_resource path="res://assets/Interface/Panels/credits.png" type="Texture" id=15]
+[ext_resource path="res://assets/Title/Channel.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0, 0, 0, 0.184314 )
@@ -37,16 +38,37 @@ border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color( 0.141176, 0.137255, 0.137255, 0 )
-border_blend = true
+border_color = Color( 0.141176, 0.137255, 0.137255, 0.207843 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=13]
 size = 34
+outline_size = 2
+outline_color = Color( 0.686275, 0, 1, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 18
+outline_size = 2
+outline_color = Color( 1, 1, 1, 0.25098 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0.384314 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.976471, 0.976471, 0.976471, 0.462745 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
 
 [sub_resource type="DynamicFont" id=10]
 size = 28
@@ -126,12 +148,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 6 )
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
@@ -141,6 +169,10 @@ margin_top = 67.0
 margin_right = 304.0
 margin_bottom = 262.0
 custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="Panel"]
 modulate = Color( 0.870588, 0.745098, 0.0509804, 1 )
@@ -167,33 +199,78 @@ valign = 1
 [node name="Jam" type="Panel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 62.0
-margin_top = -188.0
-margin_right = 471.0
-margin_bottom = -54.0
+margin_left = 25.0
+margin_top = -147.0
+margin_right = 386.0
+margin_bottom = -14.0
 custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label3" type="Label" parent="Jam"]
-modulate = Color( 1, 0.27451, 0.27451, 1 )
-anchor_top = 1.0
-anchor_bottom = 1.0
 margin_left = 19.0
-margin_top = -117.0
+margin_top = 17.0
 margin_right = 331.0
-margin_bottom = -79.0
-custom_fonts/font = SubResource( 7 )
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 13 )
 text = "A game made for:"
 align = 1
 valign = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Jam"]
-margin_left = 38.0
-margin_top = 45.0
-margin_right = 403.0
-margin_bottom = 135.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -182.5
+margin_top = -90.0
+margin_right = 182.5
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 6
+
+[node name="Youtube" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -253.0
+margin_right = 386.0
+margin_bottom = -146.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Youtube"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 11.0
+margin_right = -10.0
+margin_bottom = -11.0
+
+[node name="Label3" type="Label" parent="Youtube/HBoxContainer"]
+margin_right = 223.0
+margin_bottom = 85.0
+size_flags_vertical = 5
+custom_colors/font_color = Color( 0, 0.415686, 0.745098, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+text = "Please Subscribe to my
+youtube channel
+(It would help me a lot !)"
+align = 1
+valign = 1
+
+[node name="Channel" type="TextureButton" parent="Youtube/HBoxContainer"]
+margin_left = 227.0
+margin_right = 339.0
+margin_bottom = 85.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource( 16 )
+expand = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -204,10 +281,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -353.0
+margin_left = -260.0
 margin_top = -226.0
-margin_right = -121.0
-margin_bottom = -94.0
+margin_right = -28.0
+margin_bottom = -26.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Play" type="TextureButton" parent="Buttons"]
 margin_right = 232.0
@@ -264,6 +344,9 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.870588, 1, 0.694118, 0.388235 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="Levels"]
 anchor_left = 0.5
@@ -320,6 +403,9 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.870588, 1, 0.694118, 0.388235 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="Credits"]
 anchor_left = 0.5
@@ -505,6 +591,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 anims/Open = SubResource( 6 )
@@ -512,6 +601,7 @@ anims/Play = SubResource( 5 )
 anims/Quit = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
+[connection signal="pressed" from="Youtube/HBoxContainer/Channel" to="." method="_on_Youtube_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_Quit_pressed"]

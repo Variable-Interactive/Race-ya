@@ -14,6 +14,8 @@ func _on_Quit_pressed() -> void:
 
 func _on_Play_pressed() -> void:
 	$Levels.visible = true
+# warning-ignore:return_value_discarded
+	OS.request_permissions()
 
 
 func _on_level_selected(level :int) -> void:

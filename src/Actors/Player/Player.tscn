@@ -157,7 +157,7 @@ one_shot = true
 [node name="SlimeDetector" type="RayCast2D" parent="."]
 unique_name_in_owner = true
 enabled = true
-cast_to = Vector2( 0, 40 )
+cast_to = Vector2( 0, 54 )
 collision_mask = 4
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
