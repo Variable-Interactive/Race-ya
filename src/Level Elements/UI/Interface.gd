@@ -97,9 +97,7 @@ func toggle_pause():
 		$Buttons.visible = false
 
 
-func reverse():
-#	reload()
-
+func reverse(_bdoy: Node = null):
 	# for debugging
 	if rewind_timer:
 		rewind_timer.rewind()
