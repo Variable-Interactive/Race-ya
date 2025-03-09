@@ -69,7 +69,7 @@ func _on_Music_pressed() -> void:
 
 func _on_Youtube_pressed() -> void:
 # warning-ignore:return_value_discarded
-	OS.shell_open("https://www.youtube.com/channel/UCkc4E2bJkQ91kejNKKd_U2g")
+	OS.shell_open("https://www.youtube.com/@VariableInteractive")
 
 
 func _on_Itch_pressed() -> void:

@@ -27,7 +27,7 @@ func _ready() -> void:
 	reset_area = get_tree().current_scene.find_node("RestartArea")
 	rewind_timer = get_tree().current_scene.find_node("ReverseTimer")
 	if reset_area:
-		var _err = reset_area.connect("body_entered", self, "reverse")
+		var _err = reset_area.connect("body_entered", self, "reload")
 
 # warning-ignore:unused_variable
 	var player = get_tree().current_scene.find_node("Player")
@@ -65,7 +65,7 @@ func ai_health_changed(value: int):
 	ai_progress.value = value
 	ai_label.text = str(value, "/100")
 	if value == 0:
-		reverse()
+		reload()
 
 
 func player_health_changed(value: int):
@@ -73,7 +73,7 @@ func player_health_changed(value: int):
 	player_progress.value = value
 	player_label.text = str(value, "/100")
 	if value == 0:
-		reverse()
+		reload()
 
 
 func reload():
