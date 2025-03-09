@@ -1,22 +1,21 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 var start = true
 
-export (int) var max_health = 100
-export (int) var recovery_time = 5 #Health per second
-export (int) var speed = 500
-export (int) var jump_speed = -700
-export (int) var gravity = 2000
-export (float, 0, 1.0) var friction = 0.2
-export (float, 0, 1.0) var acceleration = 0.3
-onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var damage_interval: Timer = $DamageInterval
+@export var max_health: int = 100
+@export var recovery_time: int = 5 #Health per second
+@export var speed: int = 500
+@export var jump_speed: int = -700
+@export var gravity: int = 2000
+@export var friction = 0.2 # (float, 0, 1.0)
+@export var acceleration = 0.3 # (float, 0, 1.0)
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_interval: Timer = $DamageInterval
 
-var velocity = Vector2.ZERO
 var jump_started = false
 var play_on_land = false
-onready var slime_detector: RayCast2D = $"%SlimeDetector"
+@onready var slime_detector: RayCast2D = $"%SlimeDetector"
 
 var jump_count = 0
 
@@ -30,10 +29,10 @@ var interface
 func _ready() -> void:
 	Global.player = self
 	# wait for interface to start
-	yield(get_tree(), "idle_frame")
+	await get_tree().process_frame
 	if !interface:
-		interface = get_tree().current_scene.find_node("Interface")
-	var _err = connect("health_changed", interface, "player_health_changed")
+		interface = get_tree().current_scene.find_child("Interface")
+	var _err = health_changed.connect(interface.player_health_changed)
 	set_health(max_health)
 
 
@@ -67,19 +66,19 @@ func take_damage(value):
 
 func get_input(_dummy = null):
 	play_on_land = (velocity.length() > 700)
-	var dir = 0
+	var dir: int = 0
 	if !interface:
-		interface = get_tree().current_scene.find_node("Interface")
+		interface = get_tree().current_scene.find_child("Interface")
 	if Input.is_action_pressed("left") or interface.left:
 		dir -= 1
-		$Sprite.flip_h = true
+		$Sprite2D.flip_h = true
 	if Input.is_action_pressed("right") or interface.right:
 		dir += 1
-		$Sprite.flip_h = false
+		$Sprite2D.flip_h = false
 	if dir != 0:
-		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		velocity.x = lerpf(velocity.x, dir * speed, acceleration)
 	else:
-		velocity.x = lerp(velocity.x, 0, friction)
+		velocity.x = lerpf(velocity.x, 0, friction)
 
 
 func _physics_process(delta):
@@ -94,7 +93,9 @@ func _physics_process(delta):
 	get_input()
 
 	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, Vector2.UP)
+	set_velocity(velocity)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
 
 	if is_on_floor() and jump_started:
 		animation_player.play("land")

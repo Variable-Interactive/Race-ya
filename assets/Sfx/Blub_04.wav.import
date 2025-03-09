@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Blub_04.wav-ef88803af15526e4b0fc6607486151d6.sample"
+type="AudioStreamWAV"
+uid="uid://bgrni6oedeesh"
+path="res://.godot/imported/Blub_04.wav-ef88803af15526e4b0fc6607486151d6.sample"
 
 [deps]
 
 source_file="res://assets/Sfx/Blub_04.wav"
-dest_files=[ "res://.import/Blub_04.wav-ef88803af15526e4b0fc6607486151d6.sample" ]
+dest_files=["res://.godot/imported/Blub_04.wav-ef88803af15526e4b0fc6607486151d6.sample"]
 
 [params]
 

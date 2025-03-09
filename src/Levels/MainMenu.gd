@@ -1,10 +1,11 @@
 extends Control
 
 
-onready var anim = $ColorRect/AnimationPlayer
+@onready var anim = $ColorRect/AnimationPlayer
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	anim.play("Open")
 
 
@@ -14,7 +15,6 @@ func _on_Quit_pressed() -> void:
 
 func _on_Play_pressed() -> void:
 	$Levels.visible = true
-# warning-ignore:return_value_discarded
 	OS.request_permissions()
 
 
@@ -28,7 +28,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "Quit":
 		get_tree().quit()
 	if anim_name == "Play":
-		var _err = get_tree().change_scene(str("res://src/Levels/Level ", Global.level_selected,".tscn"))
+		var _err = get_tree().change_scene_to_file(str("res://src/Levels/Level ", Global.level_selected,".tscn"))
 
 
 func _on_AnimationPlayer_animation_started(_anim_name: String) -> void:

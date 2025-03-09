@@ -1,36 +1,35 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 
-export (int) var max_health = 100
-export (int) var recovery_time = 5 #Health per second
-export (int) var speed = 300
-export (int) var jump_speed = -800
-export (int) var gravity = 2000
-export (float, 0, 1.0) var friction = 0.2
-export (float, 0, 1.0) var acceleration = 0.3
+@export var max_health: int = 100
+@export var recovery_time: int = 5 #Health per second
+@export var speed: int = 300
+@export var jump_speed: int = -800
+@export var gravity: int = 2000
+@export var friction = 0.2 # (float, 0, 1.0)
+@export var acceleration = 0.3 # (float, 0, 1.0)
 
-var velocity = Vector2.ZERO
 var start = false
 var in_air = false
 var play_on_land = false
 var drowning = false
-onready var animation_player: AnimationPlayer = $AnimationPlayer
-onready var damage_interval: Timer = $DamageInterval
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_interval: Timer = $DamageInterval
 
 # AI settings
 
-onready var farward_raycast: RayCast2D = $"%ObstacleAhed"
-onready var below_detector: RayCast2D = $"%BelowDetector"
-onready var jump_detector: Node2D = $"%JumpDetector"
-onready var floor_detector: RayCast2D = $"%FloorDetector"
-onready var behind_detector: RayCast2D = $"%BehindDetector"
-onready var drown_detector: RayCast2D = $"%DrownDetector"
+@onready var farward_raycast: RayCast2D = $"%ObstacleAhed"
+@onready var below_detector: RayCast2D = $"%BelowDetector"
+@onready var jump_detector: Node2D = $"%JumpDetector"
+@onready var floor_detector: RayCast2D = $"%FloorDetector"
+@onready var behind_detector: RayCast2D = $"%BehindDetector"
+@onready var drown_detector: RayCast2D = $"%DrownDetector"
 
-onready var tell_jump: RayCast2D = $"%TellJump"
-onready var speech_anim: AnimationPlayer = $"%SpeechAnim"
+@onready var tell_jump: RayCast2D = $"%TellJump"
+@onready var speech_anim: AnimationPlayer = $"%SpeechAnim"
 
 
-var player: KinematicBody2D
+var player: CharacterBody2D
 var general_direction = 1
 var water_ahed = false
 var obstacle_ahed = false
@@ -51,10 +50,10 @@ signal health_changed
 
 func _ready() -> void:
 	# wait for interface to start
-	yield(get_tree(), "idle_frame")
-	player = get_tree().current_scene.find_node("Player")
-	var interface = get_tree().current_scene.find_node("Interface")
-	var _err = connect("health_changed", interface, "ai_health_changed")
+	await get_tree().process_frame
+	player = get_tree().current_scene.find_child("Player")
+	var interface = get_tree().current_scene.find_child("Interface")
+	var _err = health_changed.connect(interface.ai_health_changed)
 	set_health(max_health)
 
 
@@ -120,7 +119,7 @@ func take_damage(value):
 
 func get_input():
 	play_on_land = (velocity.length() > 300)
-	var dir = 0
+	var dir: int = 0
 	dir = general_direction
 
 	# Obstacle detection
@@ -215,9 +214,9 @@ func get_input():
 
 	# Velocity added (everytime)
 	if dir != 0:
-		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		velocity.x = lerpf(velocity.x, dir * speed, acceleration)
 	else:
-		velocity.x = lerp(velocity.x, 0, friction)
+		velocity.x = lerpf(velocity.x, 0, friction)
 
 
 func _physics_process(delta):
@@ -231,14 +230,16 @@ func _physics_process(delta):
 	set_health(clamp(health + (recovery_time * delta), 0, max_health))
 
 	if general_direction == -1:
-		$Sprite.flip_h = true
+		$Sprite2D.flip_h = true
 	elif general_direction == 1:
-		$Sprite.flip_h = false
+		$Sprite2D.flip_h = false
 
 	velocity.y += gravity * delta
 	if bored:
 		velocity.x = 0
-	velocity = move_and_slide(velocity, Vector2.UP)
+	set_velocity(velocity)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
 
 	if is_on_floor(): # reset jump settings if they are done
 		if in_air:

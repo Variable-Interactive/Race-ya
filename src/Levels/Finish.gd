@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _on_TextureButton_pressed() -> void:
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://src/Levels/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://src/Levels/MainMenu.tscn")

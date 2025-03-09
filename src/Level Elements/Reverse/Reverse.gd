@@ -1,16 +1,16 @@
 extends Timer
 
 
-var player :KinematicBody2D
-var ai :KinematicBody2D
+var player :CharacterBody2D
+var ai :CharacterBody2D
 
 var data = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	yield(get_tree().create_timer(1.0), "timeout")
-	player = get_tree().current_scene.find_node("Player")
-	ai = get_tree().current_scene.find_node("AI")
+	await get_tree().create_timer(1.0).timeout
+	player = get_tree().current_scene.find_child("Player")
+	ai = get_tree().current_scene.find_child("AI")
 	get_data()
 
 

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 22 )
 
-[node name="ForceJump" type="KinematicBody2D" groups=["Jump", "Override"]]
+[node name="ForceJump" type="CharacterBody2D" groups=["Jump", "Override"]]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 1 )

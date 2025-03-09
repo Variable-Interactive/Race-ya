@@ -1,13 +1,13 @@
 extends Node2D
 
 
-onready var player_follower: Camera2D = $"%PlayerFollower"
-onready var player: KinematicBody2D = $"%Player"
-onready var ai: KinematicBody2D = $"%AI"
+@onready var player_follower: Camera2D = $"%PlayerFollower"
+@onready var player: CharacterBody2D = $"%Player"
+@onready var ai: CharacterBody2D = $"%AI"
 
-export var next_level_name = "Level 1"
+@export var next_level_name = "Level 1"
 
-onready var interface: ColorRect = $"%Interface"
+@onready var interface: ColorRect = $"%Interface"
 
 var entered = 0
 
@@ -44,24 +44,24 @@ func _on_Finisher_body_entered(body: Node) -> void:
 
 
 func _on_Finisher_body_exited(body: Node) -> void:
-	if (body.is_in_group("Player")
+	if (
+		body.is_in_group("Player")
 		or body.is_in_group("Ai")
 	):
 		entered -= 1
 
 
 func next_level():
-	interface.anim.connect("animation_finished", self, "transition_end")
+	interface.anim.animation_finished.connect(transition_end)
 	interface.anim.play("Fade_out")
 	Global.levels_cleared += 1
 	Global.save()
 
 
 func transition_end(_anim_name :String):
-	interface.anim.disconnect("animation_finished", self, "transition_end")
-	var _err = get_tree().change_scene(str("res://src/Levels/", next_level_name,".tscn"))
+	interface.anim.animation_finished.disconnect(transition_end)
+	var _err = get_tree().change_scene_to_file(str("res://src/Levels/", next_level_name,".tscn"))
 
 
 func _on_Music_finished() -> void:
 	$Music.play()
-

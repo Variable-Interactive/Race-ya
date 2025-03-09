@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/sea_theme_1.wav-fab0f2b20f3bbdba8658906545df0234.sample"
+type="AudioStreamWAV"
+uid="uid://co0ica0mb4xyv"
+path="res://.godot/imported/sea_theme_1.wav-fab0f2b20f3bbdba8658906545df0234.sample"
 
 [deps]
 
 source_file="res://assets/Music/sea_theme_1.wav"
-dest_files=[ "res://.import/sea_theme_1.wav-fab0f2b20f3bbdba8658906545df0234.sample" ]
+dest_files=["res://.godot/imported/sea_theme_1.wav-fab0f2b20f3bbdba8658906545df0234.sample"]
 
 [params]
 

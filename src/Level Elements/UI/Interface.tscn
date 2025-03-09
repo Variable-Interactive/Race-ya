@@ -1,298 +1,289 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=3 uid="uid://b7hvcivaxfcl2"]
 
-[ext_resource path="res://src/Level Elements/UI/Interface.gd" type="Script" id=1]
-[ext_resource path="res://assets/Interface/bar/Player/bg.png" type="Texture" id=2]
-[ext_resource path="res://assets/Interface/bar/Player/fill.png" type="Texture" id=3]
-[ext_resource path="res://assets/Interface/counter/label_bg.png" type="Texture" id=4]
-[ext_resource path="res://assets/Interface/bar/Player/Player.png" type="Texture" id=5]
-[ext_resource path="res://assets/Theme/theme.tres" type="Theme" id=6]
-[ext_resource path="res://assets/Interface/bar/AI/bg.png" type="Texture" id=7]
-[ext_resource path="res://assets/Interface/bar/AI/Ai.png" type="Texture" id=8]
-[ext_resource path="res://assets/Interface/bar/AI/fill.png" type="Texture" id=9]
-[ext_resource path="res://assets/Interface/buttons/reset_hover.png" type="Texture" id=10]
-[ext_resource path="res://assets/Interface/buttons/reset_click.png" type="Texture" id=11]
-[ext_resource path="res://assets/Interface/buttons/reset_normal.png" type="Texture" id=12]
-[ext_resource path="res://assets/Interface/buttons/pause_click.png" type="Texture" id=13]
-[ext_resource path="res://assets/Interface/buttons/pause_normal.png" type="Texture" id=14]
-[ext_resource path="res://assets/Interface/buttons/pause_hover.png" type="Texture" id=15]
-[ext_resource path="res://assets/Interface/Panels/pause_menu.png" type="Texture" id=16]
-[ext_resource path="res://assets/Interface/Panels/pause_text.png" type="Texture" id=17]
-[ext_resource path="res://assets/Interface/buttons/button_pressed.png" type="Texture" id=18]
-[ext_resource path="res://assets/Interface/buttons/button_hover.png" type="Texture" id=19]
-[ext_resource path="res://assets/Interface/buttons/button_normal.png" type="Texture" id=20]
-[ext_resource path="res://assets/Interface/buttons/Android/button.png" type="Texture" id=21]
-[ext_resource path="res://assets/Interface/buttons/Android/jump.png" type="Texture" id=22]
-[ext_resource path="res://assets/Interface/buttons/Android/arrow.png" type="Texture" id=23]
-[ext_resource path="res://assets/Interface/buttons/Android/Switch.png" type="Texture" id=24]
-[ext_resource path="res://assets/Interface/buttons/Android/button_pressed.png" type="Texture" id=25]
+[ext_resource type="Script" uid="uid://brjdq0tpdy75v" path="res://src/Level Elements/UI/Interface.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dedgssgflhk7n" path="res://assets/Interface/bar/Player/bg.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://blsrp5ogrmrsg" path="res://assets/Interface/bar/Player/fill.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://kp4l07b5fyu0" path="res://assets/Interface/counter/label_bg.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dtoi6kjpm3kis" path="res://assets/Interface/bar/Player/Player.png" id="5"]
+[ext_resource type="Theme" uid="uid://cn30glrghbfpw" path="res://assets/Theme/theme.tres" id="6"]
+[ext_resource type="Texture2D" uid="uid://dnjghgseh333f" path="res://assets/Interface/bar/AI/bg.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cvx6bj84e1str" path="res://assets/Interface/bar/AI/Ai.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ca26qifg8atv7" path="res://assets/Interface/bar/AI/fill.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://xcm3pnrvsmvn" path="res://assets/Interface/buttons/reset_hover.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://ceersjka0a60x" path="res://assets/Interface/buttons/reset_click.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://cov2i75teyg3b" path="res://assets/Interface/buttons/reset_normal.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://k6ignm6k8pac" path="res://assets/Interface/buttons/pause_click.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://c0hvnl6qse4xg" path="res://assets/Interface/buttons/pause_normal.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://pm13lpjkje0e" path="res://assets/Interface/buttons/pause_hover.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://cregrui8h2ss7" path="res://assets/Interface/Panels/pause_menu.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://cu5ojbxxoxbrm" path="res://assets/Interface/Panels/pause_text.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://bicwkg3g2bg2e" path="res://assets/Interface/buttons/button_pressed.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://bq6lb7ern146m" path="res://assets/Interface/buttons/button_hover.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://wrcsei75gwg5" path="res://assets/Interface/buttons/button_normal.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://dxuhi12gm7pwy" path="res://assets/Interface/buttons/Android/button.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://dcvw2shs38143" path="res://assets/Interface/buttons/Android/jump.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://4rwn0lf8273e" path="res://assets/Interface/buttons/Android/arrow.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://d4j64miupxmce" path="res://assets/Interface/buttons/Android/Switch.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://dqje0475t7ior" path="res://assets/Interface/buttons/Android/button_pressed.png" id="25"]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id="1"]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Fade_in"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("GameButtons:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "Fade_out"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("GameButtons:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ) ]
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("GameButtons:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7iwi"]
+_data = {
+&"Fade_in": SubResource("2"),
+&"Fade_out": SubResource("3"),
+&"RESET": SubResource("4")
 }
 
 [node name="Interface" type="ColorRect"]
-pause_mode = 2
-material = SubResource( 1 )
+process_mode = 3
+material = SubResource("1")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 6 )
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 1 )
+theme = ExtResource("6")
+color = Color(0, 0, 0, 0)
+script = ExtResource("1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fade_in = SubResource( 2 )
-anims/Fade_out = SubResource( 3 )
-anims/RESET = SubResource( 4 )
-
-[node name="PlayerStats" type="HBoxContainer" parent="."]
-modulate = Color( 1, 1, 1, 0.709804 )
-show_behind_parent = true
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 530.0
-margin_bottom = 49.0
-__meta__ = {
-"_edit_group_": true
+libraries = {
+&"": SubResource("AnimationLibrary_s7iwi")
 }
 
+[node name="PlayerStats" type="HBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0.709804)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 530.0
+offset_bottom = 49.0
+
 [node name="Counter" type="NinePatchRect" parent="PlayerStats"]
-margin_right = 120.0
-margin_bottom = 39.0
-rect_min_size = Vector2( 120, 0 )
-texture = ExtResource( 4 )
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+texture = ExtResource("4")
 
 [node name="TextureRect" type="TextureRect" parent="PlayerStats/Counter"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 8.0
-margin_top = -15.0
-margin_right = 37.0
-margin_bottom = 15.0
-texture = ExtResource( 5 )
-expand = true
+offset_left = 8.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 15.0
+texture = ExtResource("5")
+expand_mode = 1
 
 [node name="PlayerLabel" type="Label" parent="PlayerStats/Counter"]
 unique_name_in_owner = true
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -71.82
-margin_top = -11.0
-margin_right = -4.82
-margin_bottom = 11.0
+offset_left = -71.82
+offset_top = -11.0
+offset_right = -4.82
+offset_bottom = 11.0
 text = "100/100"
 
-[node name="PlayerProgress" type="TextureProgress" parent="PlayerStats"]
+[node name="PlayerProgress" type="TextureProgressBar" parent="PlayerStats"]
 unique_name_in_owner = true
-margin_left = 124.0
-margin_right = 520.0
-margin_bottom = 39.0
+layout_mode = 2
 size_flags_horizontal = 3
 value = 50.0
-texture_under = ExtResource( 2 )
-texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
+texture_under = ExtResource("2")
+texture_progress = ExtResource("3")
 
 [node name="AiStats" type="HBoxContainer" parent="."]
-modulate = Color( 1, 1, 1, 0.709804 )
+modulate = Color(1, 1, 1, 0.709804)
 show_behind_parent = true
-margin_left = 10.0
-margin_top = 49.0
-margin_right = 382.0
-margin_bottom = 89.0
-__meta__ = {
-"_edit_group_": true
-}
+layout_mode = 0
+offset_left = 10.0
+offset_top = 49.0
+offset_right = 382.0
+offset_bottom = 89.0
 
 [node name="Counter" type="NinePatchRect" parent="AiStats"]
-margin_right = 120.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 120, 0 )
-texture = ExtResource( 4 )
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+texture = ExtResource("4")
 
 [node name="TextureRect" type="TextureRect" parent="AiStats/Counter"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 8.0
-margin_top = -15.0
-margin_right = 37.0
-margin_bottom = 15.0
-texture = ExtResource( 8 )
-expand = true
+offset_left = 8.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 15.0
+texture = ExtResource("8")
+expand_mode = 1
 
 [node name="AILabel" type="Label" parent="AiStats/Counter"]
 unique_name_in_owner = true
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -71.82
-margin_top = -11.0
-margin_right = -4.82
-margin_bottom = 11.0
+offset_left = -71.82
+offset_top = -11.0
+offset_right = -4.82
+offset_bottom = 11.0
 text = "100/100"
 
-[node name="AIProgress" type="TextureProgress" parent="AiStats"]
+[node name="AIProgress" type="TextureProgressBar" parent="AiStats"]
 unique_name_in_owner = true
-margin_left = 124.0
-margin_right = 372.0
-margin_bottom = 40.0
+layout_mode = 2
 size_flags_horizontal = 3
 value = 50.0
-texture_under = ExtResource( 7 )
-texture_progress = ExtResource( 9 )
+texture_under = ExtResource("7")
+texture_progress = ExtResource("9")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 show_behind_parent = true
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -212.0
-margin_top = 8.0
-margin_right = -10.0
-margin_bottom = 140.0
+offset_left = -212.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = 140.0
 
 [node name="Reset" type="VBoxContainer" parent="Buttons"]
-margin_right = 202.0
-margin_bottom = 64.0
+layout_mode = 2
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Buttons/Reset"]
-margin_right = 202.0
-margin_bottom = 64.0
+layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Buttons/Reset/HBoxContainer"]
-modulate = Color( 0, 0.729412, 1, 1 )
-margin_left = 64.0
-margin_top = 21.0
-margin_right = 134.0
-margin_bottom = 43.0
+modulate = Color(0, 0.729412, 1, 1)
+layout_mode = 2
 text = "Reset : "
 
 [node name="ResetButton" type="TextureButton" parent="Buttons/Reset/HBoxContainer"]
-margin_left = 138.0
-margin_right = 202.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 10 )
-expand = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("12")
+texture_pressed = ExtResource("11")
+texture_hover = ExtResource("10")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Buttons/Reset"]
 visible = false
-margin_top = 68.0
-margin_right = 340.0
-margin_bottom = 115.0
+layout_mode = 2
 text = "(Try rewinging 10 seconds instead)
 With --> (Ctrl + z)"
-align = 2
+horizontal_alignment = 2
 
 [node name="Pause" type="HBoxContainer" parent="Buttons"]
-margin_top = 68.0
-margin_right = 202.0
-margin_bottom = 132.0
+layout_mode = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="Buttons/Pause"]
-modulate = Color( 0, 0.729412, 1, 1 )
-margin_top = 21.0
-margin_right = 134.0
-margin_bottom = 43.0
+modulate = Color(0, 0.729412, 1, 1)
+layout_mode = 2
 text = "Pause Game :"
 
 [node name="PauseButton" type="TextureButton" parent="Buttons/Pause"]
-margin_left = 138.0
-margin_right = 202.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 15 )
-expand = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("14")
+texture_pressed = ExtResource("13")
+texture_hover = ExtResource("15")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="GameButtons" type="Control" parent="."]
+anchors_preset = 0
 anchor_top = 0.565
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -300,190 +291,187 @@ mouse_filter = 2
 
 [node name="Jump" type="TouchScreenButton" parent="GameButtons"]
 unique_name_in_owner = true
-self_modulate = Color( 0, 0.713726, 1, 0.737255 )
-position = Vector2( 796, 33 )
-scale = Vector2( 1.98, 1.98 )
-normal = ExtResource( 21 )
-pressed = ExtResource( 25 )
-__meta__ = {
-"_edit_group_": true
-}
+self_modulate = Color(0, 0.713726, 1, 0.737255)
+position = Vector2(936, 55.88)
+scale = Vector2(1.98, 1.98)
+texture_normal = ExtResource("21")
+texture_pressed = ExtResource("25")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="GameButtons/Jump"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 35.7955
-margin_top = 26.9231
-margin_right = -32.2045
-margin_bottom = -21.0769
+offset_left = 35.7955
+offset_top = 26.9231
+offset_right = -32.2045
+offset_bottom = -21.0769
 mouse_filter = 2
-texture = ExtResource( 22 )
-expand = true
+texture = ExtResource("22")
+expand_mode = 1
 
 [node name="Switch" type="TextureButton" parent="GameButtons"]
 unique_name_in_owner = true
-self_modulate = Color( 0.968627, 1, 0.466667, 1 )
-margin_left = 713.0
-margin_top = -41.0
-margin_right = 809.0
-margin_bottom = 52.0
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 25 )
-expand = true
-__meta__ = {
-"_edit_group_": true
-}
+self_modulate = Color(0.968627, 1, 0.466667, 1)
+layout_mode = 0
+offset_left = 805.0
+offset_top = -39.12
+offset_right = 905.0
+offset_bottom = 60.88
+texture_normal = ExtResource("21")
+texture_pressed = ExtResource("25")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="GameButtons/Switch"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -23.0
-margin_top = -22.0
-margin_right = 27.0
-margin_bottom = 22.0
+offset_left = -23.0
+offset_top = -22.0
+offset_right = 27.0
+offset_bottom = 22.0
 mouse_filter = 2
-texture = ExtResource( 24 )
-expand = true
+texture = ExtResource("24")
+expand_mode = 1
 
 [node name="Left" type="TouchScreenButton" parent="GameButtons"]
 unique_name_in_owner = true
-self_modulate = Color( 0.137255, 1, 0.427451, 1 )
-position = Vector2( 47, 52 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 21 )
-pressed = ExtResource( 25 )
-__meta__ = {
-"_edit_group_": true
-}
+self_modulate = Color(0.137255, 1, 0.427451, 1)
+position = Vector2(47, 52)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("21")
+texture_pressed = ExtResource("25")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="GameButtons/Left"]
-self_modulate = Color( 0.392157, 1, 0.145098, 1 )
+self_modulate = Color(0.392157, 1, 0.145098, 1)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 32.0
-margin_top = 31.0
-margin_right = -33.0
-margin_bottom = -30.0
+offset_left = 32.0
+offset_top = 31.0
+offset_right = -33.0
+offset_bottom = -30.0
 mouse_filter = 2
-texture = ExtResource( 23 )
-expand = true
-__meta__ = {
-"_editor_description_": ""
-}
+texture = ExtResource("23")
+expand_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="GameButtons"]
 unique_name_in_owner = true
-self_modulate = Color( 0.137255, 1, 0.427451, 1 )
-position = Vector2( 235, 52 )
-scale = Vector2( 1.5, 1.5 )
-normal = ExtResource( 21 )
-pressed = ExtResource( 25 )
-__meta__ = {
-"_edit_group_": true,
-"_editor_description_": ""
-}
+self_modulate = Color(0.137255, 1, 0.427451, 1)
+position = Vector2(235, 52)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("21")
+texture_pressed = ExtResource("25")
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="GameButtons/Right"]
-self_modulate = Color( 0.392157, 1, 0.145098, 1 )
+self_modulate = Color(0.392157, 1, 0.145098, 1)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 36.0
-margin_top = 29.0
-margin_right = -29.0
-margin_bottom = -32.0
+offset_left = 36.0
+offset_top = 29.0
+offset_right = -29.0
+offset_bottom = -32.0
 mouse_filter = 2
-texture = ExtResource( 23 )
-expand = true
+texture = ExtResource("23")
+expand_mode = 1
 flip_h = true
 
 [node name="Interfere" type="ColorRect" parent="."]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 0.960784, 0.643137, 0.607843 )
+color = Color(1, 0.960784, 0.643137, 0.607843)
 
 [node name="PauseMenu" type="TextureRect" parent="Interfere"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -167.5
-margin_top = -159.0
-margin_right = 167.5
-margin_bottom = 159.0
-texture = ExtResource( 16 )
-expand = true
+offset_left = -167.5
+offset_top = -159.0
+offset_right = 167.5
+offset_bottom = 159.0
+texture = ExtResource("16")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interfere/PauseMenu"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 61.0
-margin_top = 67.0
-margin_right = -66.0
-margin_bottom = -33.0
+offset_left = 61.0
+offset_top = 67.0
+offset_right = -66.0
+offset_bottom = -33.0
 
 [node name="Resume" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
-margin_right = 208.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 64 )
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 19 )
-expand = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("20")
+texture_pressed = ExtResource("18")
+texture_hover = ExtResource("19")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Resume"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Resume"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Reset" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
-margin_top = 68.0
-margin_right = 208.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 0, 64 )
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 19 )
-expand = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("20")
+texture_pressed = ExtResource("18")
+texture_hover = ExtResource("19")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Reset"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Restart Level"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Menu" type="TextureButton" parent="Interfere/PauseMenu/VBoxContainer"]
-margin_top = 136.0
-margin_right = 208.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 0, 64 )
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
 shortcut_in_tooltip = false
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 19 )
-expand = true
+texture_normal = ExtResource("20")
+texture_pressed = ExtResource("18")
+texture_hover = ExtResource("19")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Interfere/PauseMenu/VBoxContainer/Menu"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "Main Menu"
-align = 1
-valign = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Interfere/PauseMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -49.5
-margin_top = 7.0
-margin_right = 49.5
-margin_bottom = 33.0
-texture = ExtResource( 17 )
-expand = true
+offset_left = -49.5
+offset_top = 7.0
+offset_right = 49.5
+offset_bottom = 33.0
+texture = ExtResource("17")
+expand_mode = 1
 
 [node name="MenuEffect" type="AudioStreamPlayer" parent="."]
 

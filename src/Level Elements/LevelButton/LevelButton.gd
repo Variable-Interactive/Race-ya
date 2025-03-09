@@ -6,7 +6,7 @@ signal level_pressed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var menu = get_tree().current_scene
-	var _err = connect("level_pressed", menu, "_on_level_selected")
+	var _err = connect("level_pressed", Callable(menu, "_on_level_selected"))
 	if get_index() + 1 <= Global.levels_cleared:
 		disabled = false
 	if !disabled:

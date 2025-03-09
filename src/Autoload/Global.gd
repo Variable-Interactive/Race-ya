@@ -6,8 +6,8 @@ var levels_cleared = 1
 
 
 # Actor rferences
-var player :KinematicBody2D
-var actor :KinematicBody2D
+var player :CharacterBody2D
+var actor :CharacterBody2D
 
 func _enter_tree() -> void:
 	load_game()
@@ -21,17 +21,15 @@ func save():
 	var data = {
 		"levels_cleared" : levels_cleared,
 	}
-	var file := File.new()
-	var err = file.open("user://cache.data", File.WRITE)
-	if err == OK:
-		file.store_var(data)
+	var file = FileAccess.open("user://cache.data", FileAccess.WRITE)
+	if FileAccess.get_open_error() == OK:
+		file.store_line(var_to_str(data))
 		file.close()
 
 
 func load_game():
-	var file := File.new()
-	var err = file.open("user://cache.data", File.READ)
-	if err == OK:
-		var data = file.get_var()
-		levels_cleared = data.levels_cleared
-		file.close()
+	var file = FileAccess.open("user://cache.data", FileAccess.READ)
+	if FileAccess.get_open_error() == OK:
+		var data = str_to_var(file.get_line())
+		if data:
+			levels_cleared = data.get("levels_cleared", levels_cleared)

@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 # Usually the Ai is smart enousg to jump on its own but sometimes we may
 # have to override its jump system
@@ -9,4 +9,4 @@ extends KinematicBody2D
 # Left ---> Right,
 # Right ---> Left,
 # or Both
-export(int, "Left to Right", "Right to Left", "Both") var jump_if_ai_moves = 0
+@export var jump_if_ai_moves = 0 # (int, "Left to Right", "Right to Left", "Both")
