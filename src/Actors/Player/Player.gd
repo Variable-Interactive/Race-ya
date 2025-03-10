@@ -15,7 +15,6 @@ var start = true
 
 var jump_started = false
 var play_on_land = false
-@onready var slime_detector: RayCast2D = $"%SlimeDetector"
 
 var jump_count = 0
 
@@ -84,9 +83,6 @@ func get_input(_dummy = null):
 func _physics_process(delta):
 	if !start:
 		return
-	if slime_detector.is_colliding():
-		if slime_detector.get_collider().is_in_group("Enemy"):
-			slime_detector.get_collider().destroy()
 
 	set_health(clamp(health + (recovery_time * delta), 0, max_health))
 
@@ -125,3 +121,8 @@ func jump():
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "land":
 		animation_player.play("Idle")
+
+
+func _on_slime_detector_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body.destroy()

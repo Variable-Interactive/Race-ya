@@ -12,7 +12,6 @@ extends CharacterBody2D
 @onready var below_right: RayCast2D = $Sensors/BelowRight
 @onready var bottom: RayCast2D = $Sensors/Bottom
 
-var velocity = Vector2.ZERO
 var general_direction = 1
 
 var destroyed = false
@@ -48,7 +47,7 @@ func get_input():
 		switch_direction()
 
 	var dir = general_direction
-	velocity.x = lerp(velocity.x, dir * speed, acceleration)
+	velocity.x = lerpf(velocity.x, dir * speed, acceleration)
 
 
 func _physics_process(delta):
@@ -57,7 +56,6 @@ func _physics_process(delta):
 	set_velocity(velocity)
 	set_up_direction(Vector2.UP)
 	move_and_slide()
-	velocity = velocity
 
 
 func switch_direction():
