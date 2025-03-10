@@ -1,96 +1,132 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://c7mlix2a1qng1"]
 
-[ext_resource path="res://assets/Freetileset/BG/BG.png" type="Texture2D" id=1]
-[ext_resource path="res://assets/Fonts/Comfortaa-Bold.ttf" type="FontFile" id=2]
-[ext_resource path="res://assets/Interface/buttons/button_normal.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/Interface/buttons/button_pressed.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/Interface/buttons/button_hover.png" type="Texture2D" id=5]
-[ext_resource path="res://src/Levels/Finish.gd" type="Script" id=6]
-[ext_resource path="res://assets/Music/Track_#6.wav" type="AudioStream" id=7]
+[ext_resource type="Texture2D" uid="uid://seagij5bgow7" path="res://assets/Freetileset/BG/BG.png" id="1"]
+[ext_resource type="FontFile" uid="uid://8radtqwgtd6p" path="res://assets/Fonts/Comfortaa-Bold.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://wrcsei75gwg5" path="res://assets/Interface/buttons/button_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bicwkg3g2bg2e" path="res://assets/Interface/buttons/button_pressed.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bq6lb7ern146m" path="res://assets/Interface/buttons/button_hover.png" id="5"]
+[ext_resource type="Script" uid="uid://bjple8xim2w3o" path="res://src/Levels/Finish.gd" id="6"]
+[ext_resource type="AudioStream" uid="uid://b33ghovrk2026" path="res://assets/Music/Track_#6.wav" id="7"]
 
-[sub_resource type="FontFile" id=1]
-size = 68
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/68/0/ascent = 0.0
+cache/0/68/0/descent = 0.0
+cache/0/68/0/underline_position = 0.0
+cache/0/68/0/underline_thickness = 0.0
+cache/0/68/0/scale = 1.0
 
-[sub_resource type="FontFile" id=4]
-size = 36
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Iris:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "fade in"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Iris:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7meg2"]
+_data = {
+&"RESET": SubResource("2"),
+&"fade in": SubResource("3")
 }
 
 [node name="Finish" type="Control"]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.113725, 1, 0.12549, 0.352941 )
+color = Color(0.113725, 1, 0.12549, 0.352941)
 
 [node name="Label" type="Label" parent="ColorRect"]
-modulate = Color( 0, 0.72549, 1, 1 )
+layout_mode = 0
 anchor_right = 1.0
 offset_top = 45.0
 offset_bottom = 200.0
-theme_override_fonts/font = SubResource( 1 )
+theme_override_colors/font_color = Color(0, 0.72549, 1, 1)
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 68
 text = "Thanks for taking your time to play this little game !"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="ColorRect"]
-modulate = Color( 0.941176, 0.168627, 0.964706, 1 )
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -77.5
-offset_right = 512.0
-offset_bottom = 77.5
-theme_override_fonts/font = SubResource( 4 )
-text = "If you liked this game please remember to give it a rating"
-align = 1
-valign = 1
-autowrap = true
+offset_left = -576.0
+offset_top = -77.0
+offset_right = 576.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.941176, 0.168627, 0.964706, 1)
+theme_override_fonts/font = SubResource("4")
+theme_override_font_sizes/font_size = 36
+text = "If you liked this game please remember to give it a good rating"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -102,36 +138,38 @@ offset_bottom = -31.0
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="ColorRect/VBoxContainer"]
-offset_right = 330.0
-offset_bottom = 64.0
-custom_minimum_size = Vector2( 0, 64 )
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-expand = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture_normal = ExtResource("3")
+texture_pressed = ExtResource("4")
+texture_hover = ExtResource("5")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label3" type="Label" parent="ColorRect/VBoxContainer/TextureButton"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme_override_fonts/font = SubResource( 4 )
+theme_override_fonts/font = SubResource("4")
 text = "Main Menu"
-align = 1
-valign = 1
-autowrap = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Iris" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Iris"]
 root_node = NodePath("../..")
-anims/RESET = SubResource( 2 )
-"anims/fade in" = SubResource( 3 )
+libraries = {
+&"": SubResource("AnimationLibrary_7meg2")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource("7")
 autoplay = true
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]

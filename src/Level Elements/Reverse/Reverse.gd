@@ -33,4 +33,3 @@ func rewind():
 		if entry:
 			player.update_data(entry[0])
 			ai.update_data(entry[1])
-
